@@ -22,4 +22,5 @@ urlpatterns = [
     path('',vaccine.index, name='index'),
     path('next',vaccine.next, name='select'),
     path('test',vaccine.form, name='form'),
+    path('decide', vaccine.decide, name='decide'),
 ]

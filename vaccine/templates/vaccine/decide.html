@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <link rel="stylesheet" href="{% static 'vaccine\css\sticky-footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'vaccine\css\bootstrap.min.css' %}" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+    <title>最終確認画面</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+    
+<!-- Begin page content -->
+  <div class="container">
+    <h3 class="mt-5"><center>以下の内容で予約します．</center></h3>
+    <p><center>氏名 : {{myouji}} {{namae}}</center></p>
+    <p><center>接種日時 : {{year}}年 {{month}}月 {{day}}日 {{time}}:00時</center></p>
+    <p><center>接種施設 : {{hospital}}</center></p>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button">予約完了</button>
+      </div>  
+</div>
+
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>
