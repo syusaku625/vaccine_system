@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import vaccineForm
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponseRedirect
 from .models import Hospital
 # Create your views here.
 
@@ -58,6 +60,7 @@ def decide(request):
     month=tmp[5]
     day=tmp[6]
     time=tmp[7]
+    mail=tmp[10]
     params={
         'hospital' : hospital_name,
         'myouji' : myouji,
@@ -67,6 +70,30 @@ def decide(request):
         'day' : day,
         'all' : all,
         'time' : time,
+        'mail' : mail, 
     }
     return render(request, 'vaccine/decide.html',params)
     
+def mail(request):
+    all=str(request.GET.get('all'))
+    tmp=all.split(',')
+    myouji=tmp[0]
+    year=tmp[1]
+    month=tmp[2]
+    day=tmp[3]
+    time=tmp[4]
+    hospital=tmp[6]
+    mail=tmp[5]
+    """題名"""
+    subject = "予約完了"
+    """本文"""
+    message = myouji+"様\n"+"以下の内容でワクチン接種の予約が完了しました.\n"+year+"年"+month+"月"+day+"日"+time+":00"+"時\n"+"接種場所："+hospital+"\n"
+    """送信元メールアドレス"""
+    from_email = "vaccine@syusaku"
+    """宛先メールアドレス"""
+    recipient_list = [
+        mail
+    ]
+
+    send_mail(subject, message, from_email, recipient_list)
+    return HttpResponse('<h1><center>予約内容を記載したメールを送信しました．</center></h1>')

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import vaccine.views as vaccine
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,5 @@ urlpatterns = [
     path('next',vaccine.next, name='select'),
     path('test',vaccine.form, name='form'),
     path('decide', vaccine.decide, name='decide'),
+    path('send_mail', vaccine.mail, name='mail'),
 ]

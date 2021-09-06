@@ -127,3 +127,19 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 IMPORT_EXPORT_IMPORT_PERMISSION_CODE = 'change'
+
+# mail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 25
+#EMAIL_HOST_USER = 'syusaku625'
+#EMAIL_HOST_PASSWORD = 'gerigeri625'
+#EMAIL_USE_TLS = False
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'maedasyu625@gmail.com'
+EMAIL_HOST_PASSWORD = 'ynzgbbdvexjslehf'
+EMAIL_USE_TLS = True
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

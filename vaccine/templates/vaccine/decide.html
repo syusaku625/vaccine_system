@@ -42,14 +42,17 @@
     
 <!-- Begin page content -->
   <div class="container">
-    <h3 class="mt-5"><center>以下の内容で予約します．</center></h3>
-    <p><center>氏名 : {{myouji}} {{namae}}</center></p>
-    <p><center>接種日時 : {{year}}年 {{month}}月 {{day}}日 {{time}}:00時</center></p>
-    <p><center>接種施設 : {{hospital}}</center></p>
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="button">予約完了</button>
-      </div>  
-</div>
+    <form action="{% url 'mail' %}" method="GET">
+        <input type="hidden" id="name" name="all" value={{myouji}},{{year}},{{month}},{{day}},{{time}},{{mail}},{{hospital}}>
+        <h3 class="mt-5"><center>以下の内容で予約します．</center></h3>
+        <p><center>氏名 : {{myouji}} {{namae}}</center></p>
+        <p><center>接種日時 : {{year}}年 {{month}}月 {{day}}日 {{time}}:00時</center></p>
+        <p><center>接種施設 : {{hospital}}</center></p>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button action="{% url 'decide' %}" type="submit" class="btn btn-primary" type="button"<a href="{% url 'decide' %}">予約完了</a>></button>
+        </div>  
+    </form>
+  </div>
 
 
 <footer class="footer mt-auto py-3 bg-light">
