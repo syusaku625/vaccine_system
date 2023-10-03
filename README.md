@@ -1,2 +1,4 @@
 # ワクチン予約システム
-Django + Bootstrap
+Django + Bootstrapで実装
+
+予約病院の検索から，予約確認のメール送信まで実装済み
